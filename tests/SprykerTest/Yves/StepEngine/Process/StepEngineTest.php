@@ -5,7 +5,7 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Unit\Spryker\Yves\StepEngine\Process;
+namespace SprykerTest\Yves\StepEngine\Process;
 
 use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
 use Spryker\Yves\StepEngine\Dependency\DataContainer\DataContainerInterface;
@@ -15,12 +15,13 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
- * @group Unit
- * @group Spryker
+ * Auto-generated group annotations
+ * @group SprykerTest
  * @group Yves
  * @group StepEngine
  * @group Process
  * @group StepEngineTest
+ * Add your own group annotations below this line
  */
 class StepEngineTest extends AbstractStepEngineTest
 {

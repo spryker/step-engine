@@ -5,18 +5,19 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Unit\Spryker\Yves\StepEngine\Process;
+namespace SprykerTest\Yves\StepEngine\Process;
 
 use Spryker\Yves\StepEngine\Process\StepCollection;
 use Spryker\Yves\StepEngine\Process\StepCollectionInterface;
 
 /**
- * @group Unit
- * @group Spryker
+ * Auto-generated group annotations
+ * @group SprykerTest
  * @group Yves
  * @group StepEngine
  * @group Process
  * @group StepCollectionTest
+ * Add your own group annotations below this line
  */
 class StepCollectionTest extends AbstractStepEngineTest
 {

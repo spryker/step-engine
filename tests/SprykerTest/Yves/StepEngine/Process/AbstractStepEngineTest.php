@@ -5,23 +5,24 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Unit\Spryker\Yves\StepEngine\Process;
+namespace SprykerTest\Yves\StepEngine\Process;
 
 use PHPUnit_Framework_TestCase;
 use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
 use Spryker\Yves\StepEngine\Dependency\Step\StepWithExternalRedirectInterface;
 use Spryker\Yves\StepEngine\Process\StepCollection;
+use SprykerTest\Yves\StepEngine\Process\Fixtures\StepMock;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Unit\Spryker\Yves\StepEngine\Process\Fixtures\StepMock;
 
 /**
- * @group Unit
- * @group Spryker
+ * Auto-generated group annotations
+ * @group SprykerTest
  * @group Yves
  * @group StepEngine
  * @group Process
  * @group AbstractStepEngineTest
+ * Add your own group annotations below this line
  */
 abstract class AbstractStepEngineTest extends PHPUnit_Framework_TestCase
 {

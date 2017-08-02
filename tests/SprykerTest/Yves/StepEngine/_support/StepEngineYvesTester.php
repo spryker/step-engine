@@ -1,6 +1,5 @@
 <?php
-
-namespace StepEngine;
+namespace SprykerTest\Yves\StepEngine;
 
 use Codeception\Actor;
 
@@ -19,9 +18,13 @@ use Codeception\Actor;
  *
  * @SuppressWarnings(PHPMD)
  */
-class UnitTester extends Actor
+class StepEngineYvesTester extends Actor
 {
 
-    use _generated\UnitTesterActions;
+    use _generated\StepEngineYvesTesterActions;
+
+   /**
+    * Define custom actions here
+    */
 
 }

@@ -5,7 +5,7 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Unit\Spryker\Yves\StepEngine\Dependency\Form;
+namespace SprykerTest\Yves\StepEngine\Dependency\Form;
 
 use PHPUnit_Framework_TestCase;
 use Spryker\Yves\StepEngine\Dependency\Form\AbstractSubFormType;
@@ -13,13 +13,14 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 
 /**
- * @group Unit
- * @group Spryker
+ * Auto-generated group annotations
+ * @group SprykerTest
  * @group Yves
  * @group StepEngine
  * @group Dependency
  * @group Form
  * @group AbstractSubFormTypeTest
+ * Add your own group annotations below this line
  */
 class AbstractSubFormTypeTest extends PHPUnit_Framework_TestCase
 {

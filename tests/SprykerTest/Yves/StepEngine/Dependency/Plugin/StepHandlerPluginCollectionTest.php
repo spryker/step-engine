@@ -5,20 +5,21 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Unit\Spryker\Yves\StepEngine\Dependency\Plugin;
+namespace SprykerTest\Yves\StepEngine\Dependency\Plugin;
 
 use PHPUnit_Framework_TestCase;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginCollection;
 use Spryker\Yves\StepEngine\Dependency\Plugin\Handler\StepHandlerPluginInterface;
 
 /**
- * @group Unit
- * @group Spryker
+ * Auto-generated group annotations
+ * @group SprykerTest
  * @group Yves
  * @group StepEngine
  * @group Dependency
  * @group Plugin
  * @group StepHandlerPluginCollectionTest
+ * Add your own group annotations below this line
  */
 class StepHandlerPluginCollectionTest extends PHPUnit_Framework_TestCase
 {

@@ -5,7 +5,7 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Unit\Spryker\Yves\StepEngine\Dependency\Step\Fixtures;
+namespace SprykerTest\Yves\StepEngine\Dependency\Step\Fixtures;
 
 use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
 use Symfony\Component\HttpFoundation\Request;

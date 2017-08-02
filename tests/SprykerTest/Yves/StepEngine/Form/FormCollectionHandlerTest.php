@@ -5,7 +5,7 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Unit\Spryker\Yves\StepEngine\Form;
+namespace SprykerTest\Yves\StepEngine\Form;
 
 use PHPUnit_Framework_TestCase;
 use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
@@ -19,12 +19,13 @@ use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * @group Unit
- * @group Spryker
+ * Auto-generated group annotations
+ * @group SprykerTest
  * @group Yves
  * @group StepEngine
  * @group Form
  * @group FormCollectionHandlerTest
+ * Add your own group annotations below this line
  */
 class FormCollectionHandlerTest extends PHPUnit_Framework_TestCase
 {

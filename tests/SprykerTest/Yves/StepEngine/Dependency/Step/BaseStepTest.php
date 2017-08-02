@@ -5,21 +5,22 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Unit\Spryker\Yves\StepEngine\Dependency\Step;
+namespace SprykerTest\Yves\StepEngine\Dependency\Step;
 
 use PHPUnit_Framework_TestCase;
 use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
 use Spryker\Yves\StepEngine\Dependency\Step\StepInterface;
-use Unit\Spryker\Yves\StepEngine\Dependency\Step\Fixtures\BaseStep;
+use SprykerTest\Yves\StepEngine\Dependency\Step\Fixtures\BaseStep;
 
 /**
- * @group Unit
- * @group Spryker
+ * Auto-generated group annotations
+ * @group SprykerTest
  * @group Yves
  * @group StepEngine
  * @group Dependency
  * @group Step
  * @group BaseStepTest
+ * Add your own group annotations below this line
  */
 class BaseStepTest extends PHPUnit_Framework_TestCase
 {
@@ -65,7 +66,7 @@ class BaseStepTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \Unit\Spryker\Yves\StepEngine\Dependency\Step\Fixtures\BaseStep
+     * @return \SprykerTest\Yves\StepEngine\Dependency\Step\Fixtures\BaseStep
      */
     private function getBaseStepInstance()
     {
