@@ -83,4 +83,11 @@ class SubFormPluginCollection implements Iterator, Countable
         return count($this->subForms);
     }
 
+    /**
+     * @return void
+     */
+    public function reset()
+    {
+        $this->subForms = array_values($this->subForms);
+    }
 }
