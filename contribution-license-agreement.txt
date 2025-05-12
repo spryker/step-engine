@@ -1,0 +1,1 @@
+I hereby agree to Spryker\'s Contribution License Agreement in https://github.com/spryker/step-engine/blob/389fc9bff404760d300e50c4b31aaab40c7e9379/CONTRIBUTING.md.

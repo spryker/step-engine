@@ -62,17 +62,17 @@ class StepCollection implements StepCollectionInterface
     /**
      * @param \Spryker\Yves\StepEngine\Dependency\Step\StepInterface $step
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $abstractTransfer
      *
      * @return bool
      */
-    public function canAccessStep(StepInterface $step, Request $request, AbstractTransfer $quoteTransfer)
+    public function canAccessStep(StepInterface $step, Request $request, AbstractTransfer $abstractTransfer)
     {
         if ($request->get('_route') === $step->getStepRoute()) {
             return true;
         }
 
-        foreach ($this->getCompletedSteps($quoteTransfer) as $completedStep) {
+        foreach ($this->getCompletedSteps($abstractTransfer) as $completedStep) {
             if ($completedStep->getStepRoute() === $request->get('_route')) {
                 return true;
             }
@@ -82,15 +82,15 @@ class StepCollection implements StepCollectionInterface
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $abstractTransfer
      *
      * @return array<\Spryker\Yves\StepEngine\Dependency\Step\StepInterface>
      */
-    protected function getCompletedSteps(AbstractTransfer $quoteTransfer)
+    protected function getCompletedSteps(AbstractTransfer $abstractTransfer)
     {
         $completedSteps = [];
         foreach ($this->steps as $step) {
-            if ($step->postCondition($quoteTransfer)) {
+            if ($step->postCondition($abstractTransfer)) {
                 $completedSteps[] = $step;
             }
         }
@@ -100,14 +100,14 @@ class StepCollection implements StepCollectionInterface
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $abstractTransfer
      *
      * @return \Spryker\Yves\StepEngine\Dependency\Step\StepInterface
      */
-    public function getCurrentStep(Request $request, AbstractTransfer $quoteTransfer)
+    public function getCurrentStep(Request $request, AbstractTransfer $abstractTransfer)
     {
         foreach ($this->steps as $step) {
-            if (!$step->postCondition($quoteTransfer) || $request->get('_route') === $step->getStepRoute()) {
+            if (!$step->postCondition($abstractTransfer) || $request->get('_route') === $step->getStepRoute()) {
                 return $step;
             }
 
@@ -142,7 +142,7 @@ class StepCollection implements StepCollectionInterface
 
     /**
      * @param \Spryker\Yves\StepEngine\Dependency\Step\StepInterface $currentStep
-     * @param \Generated\Shared\Transfer\QuoteTransfer|null $dataTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|null $dataTransfer
      *
      * @return \Spryker\Yves\StepEngine\Dependency\Step\StepInterface
      */
@@ -172,7 +172,7 @@ class StepCollection implements StepCollectionInterface
 
     /**
      * @param \Spryker\Yves\StepEngine\Dependency\Step\StepInterface $step
-     * @param \Generated\Shared\Transfer\QuoteTransfer|null $dataTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|null $dataTransfer
      *
      * @return bool
      */
@@ -197,30 +197,30 @@ class StepCollection implements StepCollectionInterface
 
     /**
      * @param \Spryker\Yves\StepEngine\Dependency\Step\StepInterface $currentStep
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $abstractTransfer
      *
      * @return string
      */
-    public function getNextUrl(StepInterface $currentStep, AbstractTransfer $quoteTransfer)
+    public function getNextUrl(StepInterface $currentStep, AbstractTransfer $abstractTransfer)
     {
         if (($currentStep instanceof StepWithExternalRedirectInterface) && $currentStep->getExternalRedirectUrl()) {
             return $currentStep->getExternalRedirectUrl();
         }
 
-        $route = $this->getNextStepRoute($currentStep, $quoteTransfer);
+        $route = $this->getNextStepRoute($currentStep, $abstractTransfer);
 
         return $this->getUrlFromRoute($route);
     }
 
     /**
      * @param \Spryker\Yves\StepEngine\Dependency\Step\StepInterface $currentStep
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $abstractTransfer
      *
      * @return string
      */
-    protected function getNextStepRoute(StepInterface $currentStep, AbstractTransfer $quoteTransfer)
+    protected function getNextStepRoute(StepInterface $currentStep, AbstractTransfer $abstractTransfer)
     {
-        if ($currentStep->postCondition($quoteTransfer)) {
+        if ($currentStep->postCondition($abstractTransfer)) {
             $nextStep = $this->getNextStep($currentStep);
 
             return $nextStep->getStepRoute();
@@ -230,7 +230,7 @@ class StepCollection implements StepCollectionInterface
             return $currentStep->getPostConditionErrorRoute();
         }
 
-        if ($currentStep->requireInput($quoteTransfer)) {
+        if ($currentStep->requireInput($abstractTransfer)) {
             return $currentStep->getStepRoute();
         }
 
@@ -239,13 +239,13 @@ class StepCollection implements StepCollectionInterface
 
     /**
      * @param \Spryker\Yves\StepEngine\Dependency\Step\StepInterface $currentStep
-     * @param \Generated\Shared\Transfer\QuoteTransfer|null $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer|null $abstractTransfer
      *
      * @return string
      */
-    public function getPreviousUrl(StepInterface $currentStep, ?AbstractTransfer $quoteTransfer = null)
+    public function getPreviousUrl(StepInterface $currentStep, ?AbstractTransfer $abstractTransfer = null)
     {
-        $stepRoute = $this->getPreviousStep($currentStep, $quoteTransfer)->getStepRoute();
+        $stepRoute = $this->getPreviousStep($currentStep, $abstractTransfer)->getStepRoute();
 
         return $this->getUrlFromRoute($stepRoute);
     }

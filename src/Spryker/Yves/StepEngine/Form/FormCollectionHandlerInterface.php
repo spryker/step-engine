@@ -13,32 +13,32 @@ use Symfony\Component\HttpFoundation\Request;
 interface FormCollectionHandlerInterface
 {
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $abstractTransfer
      *
      * @return array<\Symfony\Component\Form\FormInterface>
      */
-    public function getForms(AbstractTransfer $quoteTransfer);
+    public function getForms(AbstractTransfer $abstractTransfer);
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $abstractTransfer
      *
      * @return bool
      */
-    public function hasSubmittedForm(Request $request, AbstractTransfer $quoteTransfer);
+    public function hasSubmittedForm(Request $request, AbstractTransfer $abstractTransfer);
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $abstractTransfer
      *
      * @return \Symfony\Component\Form\FormInterface|null
      */
-    public function handleRequest(Request $request, AbstractTransfer $quoteTransfer);
+    public function handleRequest(Request $request, AbstractTransfer $abstractTransfer);
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $abstractTransfer
      *
      * @return void
      */
-    public function provideDefaultFormData(AbstractTransfer $quoteTransfer);
+    public function provideDefaultFormData(AbstractTransfer $abstractTransfer);
 }
