@@ -60,42 +60,42 @@ class StepMock implements StepInterface
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $abstractTransfer
      *
      * @return bool
      */
-    public function preCondition(AbstractTransfer $quoteTransfer): bool
+    public function preCondition(AbstractTransfer $abstractTransfer): bool
     {
         return $this->preCondition;
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $abstractTransfer
      *
      * @return bool
      */
-    public function requireInput(AbstractTransfer $quoteTransfer): bool
+    public function requireInput(AbstractTransfer $abstractTransfer): bool
     {
         return $this->requireInput;
     }
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $abstractTransfer
      *
      * @return \Spryker\Shared\Kernel\Transfer\AbstractTransfer
      */
-    public function execute(Request $request, AbstractTransfer $quoteTransfer): AbstractTransfer
+    public function execute(Request $request, AbstractTransfer $abstractTransfer): AbstractTransfer
     {
-        return $quoteTransfer;
+        return $abstractTransfer;
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $abstractTransfer
      *
      * @return bool
      */
-    public function postCondition(AbstractTransfer $quoteTransfer): bool
+    public function postCondition(AbstractTransfer $abstractTransfer): bool
     {
         return $this->postCondition;
     }
@@ -117,11 +117,11 @@ class StepMock implements StepInterface
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $abstractTransfer
      *
      * @return array
      */
-    public function getTemplateVariables(AbstractTransfer $quoteTransfer): array
+    public function getTemplateVariables(AbstractTransfer $abstractTransfer): array
     {
         return [];
     }

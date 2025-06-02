@@ -19,9 +19,9 @@ interface StepHandlerPluginInterface
      * @api
      *
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $abstractTransfer
      *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
+     * @return \Spryker\Shared\Kernel\Transfer\AbstractTransfer
      */
-    public function addToDataClass(Request $request, AbstractTransfer $quoteTransfer);
+    public function addToDataClass(Request $request, AbstractTransfer $abstractTransfer);
 }

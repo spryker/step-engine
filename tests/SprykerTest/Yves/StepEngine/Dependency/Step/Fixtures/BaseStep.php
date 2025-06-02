@@ -14,41 +14,41 @@ use Symfony\Component\HttpFoundation\Request;
 class BaseStep extends AbstractBaseStep
 {
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $abstractTransfer
      *
      * @return bool
      */
-    public function preCondition(AbstractTransfer $quoteTransfer): bool
+    public function preCondition(AbstractTransfer $abstractTransfer): bool
     {
         return true;
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $abstractTransfer
      *
      * @return bool
      */
-    public function requireInput(AbstractTransfer $quoteTransfer): bool
+    public function requireInput(AbstractTransfer $abstractTransfer): bool
     {
         return true;
     }
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $abstractTransfer
      *
      * @return void
      */
-    public function execute(Request $request, AbstractTransfer $quoteTransfer): void
+    public function execute(Request $request, AbstractTransfer $abstractTransfer): void
     {
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $abstractTransfer
      *
      * @return bool
      */
-    public function postCondition(AbstractTransfer $quoteTransfer): bool
+    public function postCondition(AbstractTransfer $abstractTransfer): bool
     {
         return true;
     }

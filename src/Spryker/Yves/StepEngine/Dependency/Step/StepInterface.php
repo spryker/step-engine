@@ -15,39 +15,39 @@ interface StepInterface
     /**
      * Requirements for this step, return true when satisfied.
      *
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $abstractTransfer
      *
      * @return bool
      */
-    public function preCondition(AbstractTransfer $quoteTransfer);
+    public function preCondition(AbstractTransfer $abstractTransfer);
 
     /**
      * Require input, should we render view with form or just skip step after calling execute.
      *
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $abstractTransfer
      *
      * @return bool
      */
-    public function requireInput(AbstractTransfer $quoteTransfer);
+    public function requireInput(AbstractTransfer $abstractTransfer);
 
     /**
      * Execute step logic, happens after form submit if provided, gets AbstractTransfer filled by form data.
      *
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $abstractTransfer
      *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
+     * @return \Spryker\Shared\Kernel\Transfer\AbstractTransfer
      */
-    public function execute(Request $request, AbstractTransfer $quoteTransfer);
+    public function execute(Request $request, AbstractTransfer $abstractTransfer);
 
     /**
      * Conditions that should be met for this step to be marked as completed. returns true when satisfied.
      *
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $abstractTransfer
      *
      * @return bool
      */
-    public function postCondition(AbstractTransfer $quoteTransfer);
+    public function postCondition(AbstractTransfer $abstractTransfer);
 
     /**
      * Current step route.
@@ -64,9 +64,9 @@ interface StepInterface
     public function getEscapeRoute();
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $abstractTransfer
      *
      * @return array
      */
-    public function getTemplateVariables(AbstractTransfer $quoteTransfer);
+    public function getTemplateVariables(AbstractTransfer $abstractTransfer);
 }

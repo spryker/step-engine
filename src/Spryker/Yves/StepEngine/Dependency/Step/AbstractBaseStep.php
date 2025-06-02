@@ -48,11 +48,11 @@ abstract class AbstractBaseStep implements StepInterface
     }
 
     /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $abstractTransfer
      *
      * @return array
      */
-    public function getTemplateVariables(AbstractTransfer $quoteTransfer)
+    public function getTemplateVariables(AbstractTransfer $abstractTransfer)
     {
         return [];
     }
