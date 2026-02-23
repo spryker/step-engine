@@ -48,7 +48,11 @@ class AbstractSubFormTypeTest extends Unit
      */
     private function getAbstractSubFormTypeMock(): AbstractSubFormType
     {
-        $abstractSubFormTypeMock = $this->getMockForAbstractClass(AbstractSubFormType::class, [], '', true, true, true, ['getTemplatePath']);
+        $abstractSubFormTypeMock = $this->getMockBuilder(AbstractSubFormType::class)
+            ->onlyMethods(['getTemplatePath'])
+            ->disableOriginalConstructor()
+            ->getMock();
+
         $abstractSubFormTypeMock->method('getTemplatePath')->willReturn(static::TEMPLATE_PATH);
 
         return $abstractSubFormTypeMock;

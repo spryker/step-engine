@@ -107,7 +107,7 @@ abstract class AbstractStepEngineTest extends Unit
     protected function getUrlGeneratorMock(): UrlGeneratorInterface
     {
         $urlGeneratorMock = $this->getMockBuilder(UrlGeneratorInterface::class)->getMock();
-        $urlGeneratorMock->method('generate')->will($this->returnCallback([$this, 'urlGeneratorCallBack']));
+        $urlGeneratorMock->method('generate')->willReturnCallback([$this, 'urlGeneratorCallBack']);
 
         return $urlGeneratorMock;
     }

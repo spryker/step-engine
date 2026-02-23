@@ -58,7 +58,8 @@ class FormCollectionHandlerTest extends Unit
         $formFactoryMock = $this->getFormFactoryMock(['create']);
         $formFactoryMock->expects($this->once())->method('create');
 
-        $formTypeMock = $this->getMockForAbstractClass(FormTypeInterface::class);
+        // Use createMock for interface to ensure all methods are implemented by the mock
+        $formTypeMock = $this->createMock(FormTypeInterface::class);
 
         $dataProviderMock = $this->getDataProviderMock();
         $dataProviderMock->expects($this->once())->method('getOptions')->willReturn([]);
@@ -75,7 +76,7 @@ class FormCollectionHandlerTest extends Unit
         $formFactoryMock = $this->getFormFactoryMock(['create']);
         $formFactoryMock->expects($this->once())->method('create');
 
-        $formTypeMock = $this->getMockForAbstractClass(FormTypeInterface::class);
+        $formTypeMock = $this->createMock(FormTypeInterface::class);
 
         $dataProviderMock = $this->getDataProviderMock();
         $dataProviderMock->expects($this->once())->method('getOptions')->willReturn([]);
@@ -125,7 +126,7 @@ class FormCollectionHandlerTest extends Unit
     {
         $formCollectionHandlerMock = $this->getFormCollectionHandlerMock(['getForms']);
 
-        $formMock = $this->getMockForAbstractClass(FormInterface::class, [], '', false, false, false, ['getName', 'handleRequest']);
+        $formMock = $this->createMock(FormInterface::class);
         $formMock->method('getName')->willReturn('formA');
         $formMock->expects($this->once())->method('handleRequest')->willReturnSelf();
         $formMocks = [
@@ -145,7 +146,7 @@ class FormCollectionHandlerTest extends Unit
     {
         $formCollectionHandlerMock = $this->getFormCollectionHandlerMock(['getForms']);
 
-        $formMock = $this->getMockForAbstractClass(FormInterface::class, [], '', false, false, false, ['setData']);
+        $formMock = $this->createMock(FormInterface::class);
         $formMock->expects($this->once())->method('setData');
         $formMocks = [
             $formMock,
@@ -164,11 +165,10 @@ class FormCollectionHandlerTest extends Unit
         $dataProviderMock = $this->getDataProviderMock();
         $dataProviderMock->expects($this->once())->method('getOptions')->willReturn([]);
 
-        $formMock = $this->getMockForAbstractClass(FormInterface::class);
+        $formMock = $this->createMock(FormInterface::class);
         $formFactoryMock = $this->getFormFactoryMock(['create']);
         $formFactoryMock->method('create')->willReturn($formMock);
-
-        $formTypeMock = $this->getMockForAbstractClass(FormTypeInterface::class);
+        $formTypeMock = $this->createMock(FormTypeInterface::class);
         $formCollectionHandler = new FormCollectionHandler([$formTypeMock], $formFactoryMock, $dataProviderMock);
         $formCollectionHandler->provideDefaultFormData($this->getDataTransferMock());
     }
@@ -178,11 +178,11 @@ class FormCollectionHandlerTest extends Unit
      */
     public function testProvideDefaultFormWithoutDataProvider(): void
     {
-        $formMock = $this->getMockForAbstractClass(FormInterface::class);
+        $formMock = $this->createMock(FormInterface::class);
         $formFactoryMock = $this->getFormFactoryMock(['create']);
         $formFactoryMock->method('create')->willReturn($formMock);
 
-        $formTypeMock = $this->getMockForAbstractClass(FormTypeInterface::class);
+        $formTypeMock = $this->createMock(FormTypeInterface::class);
         $formCollectionHandler = new FormCollectionHandler([$formTypeMock], $formFactoryMock);
         $formCollectionHandler->provideDefaultFormData($this->getDataTransferMock());
     }
@@ -193,11 +193,11 @@ class FormCollectionHandlerTest extends Unit
     private function getForms(): array
     {
         $formMocks = [];
-        $formMockA = $this->getMockForAbstractClass(FormInterface::class, [], '', false, false, false, ['getName']);
+        $formMockA = $this->createMock(FormInterface::class);
         $formMockA->method('getName')->willReturn('formA');
         $formMocks[] = $formMockA;
 
-        $formMockB = $this->getMockForAbstractClass(FormInterface::class, [], '', false, false, false, ['getName']);
+        $formMockB = $this->createMock(FormInterface::class);
         $formMockB->method('getName')->willReturn('formB');
         $formMocks[] = $formMockB;
 
@@ -228,7 +228,8 @@ class FormCollectionHandlerTest extends Unit
      */
     private function getFormFactoryMock(array $formFactoryMethods = []): FormFactoryInterface
     {
-        return $this->getMockForAbstractClass(FormFactoryInterface::class, [], '', false, false, true, $formFactoryMethods);
+        // Use createMock to ensure generated mock implements all interface methods
+        return $this->createMock(FormFactoryInterface::class);
     }
 
     /**
