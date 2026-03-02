@@ -30,9 +30,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class FormCollectionHandlerTest extends Unit
 {
-    /**
-     * @return void
-     */
     public function testGetInstance(): void
     {
         $formCollectionHandler = new FormCollectionHandler([], $this->getFormFactoryMock(), $this->getDataProviderMock());
@@ -40,9 +37,6 @@ class FormCollectionHandlerTest extends Unit
         $this->assertInstanceOf(FormCollectionHandlerInterface::class, $formCollectionHandler);
     }
 
-    /**
-     * @return void
-     */
     public function testGetForms(): void
     {
         $formCollectionHandler = new FormCollectionHandler([], $this->getFormFactoryMock(), $this->getDataProviderMock());
@@ -50,9 +44,6 @@ class FormCollectionHandlerTest extends Unit
         $this->assertIsArray($formCollectionHandler->getForms($this->getDataTransferMock()));
     }
 
-    /**
-     * @return void
-     */
     public function testGetFormsInvokesFormFactory(): void
     {
         $formFactoryMock = $this->getFormFactoryMock(['create']);
@@ -68,9 +59,6 @@ class FormCollectionHandlerTest extends Unit
         $formCollectionHandler->getForms($this->getDataTransferMock());
     }
 
-    /**
-     * @return void
-     */
     public function testGetFormsInvokesFormFactoryAndDataProvider(): void
     {
         $formFactoryMock = $this->getFormFactoryMock(['create']);
@@ -85,9 +73,6 @@ class FormCollectionHandlerTest extends Unit
         $formCollectionHandler->getForms($this->getDataTransferMock());
     }
 
-    /**
-     * @return void
-     */
     public function testHasSubmittedFormsReturnTrue(): void
     {
         $formCollectionHandlerMock = $this->getFormCollectionHandlerMock(['getForms']);
@@ -97,9 +82,6 @@ class FormCollectionHandlerTest extends Unit
         $this->assertTrue($formCollectionHandlerMock->hasSubmittedForm($request, $this->getDataTransferMock()));
     }
 
-    /**
-     * @return void
-     */
     public function testHasSubmittedFormsReturnFalse(): void
     {
         $formCollectionHandler = new FormCollectionHandler([], $this->getFormFactoryMock(), $this->getDataProviderMock());
@@ -107,9 +89,6 @@ class FormCollectionHandlerTest extends Unit
         $this->assertFalse($formCollectionHandler->hasSubmittedForm(Request::createFromGlobals(), $this->getDataTransferMock()));
     }
 
-    /**
-     * @return void
-     */
     public function testHandleRequestThrowsException(): void
     {
         $formCollectionHandler = new FormCollectionHandler([], $this->getFormFactoryMock(), $this->getDataProviderMock());
@@ -119,9 +98,6 @@ class FormCollectionHandlerTest extends Unit
         $formCollectionHandler->handleRequest(Request::createFromGlobals(), $this->getDataTransferMock());
     }
 
-    /**
-     * @return void
-     */
     public function testHandleRequest(): void
     {
         $formCollectionHandlerMock = $this->getFormCollectionHandlerMock(['getForms']);
@@ -139,9 +115,6 @@ class FormCollectionHandlerTest extends Unit
         $this->assertInstanceOf(FormInterface::class, $formCollectionHandlerMock->handleRequest($request, $this->getDataTransferMock()));
     }
 
-    /**
-     * @return void
-     */
     public function testProvideDefaultFormData(): void
     {
         $formCollectionHandlerMock = $this->getFormCollectionHandlerMock(['getForms']);
@@ -157,9 +130,6 @@ class FormCollectionHandlerTest extends Unit
         $formCollectionHandlerMock->provideDefaultFormData($this->getDataTransferMock());
     }
 
-    /**
-     * @return void
-     */
     public function testProvideDefaultFormDataInvokesDataProvider(): void
     {
         $dataProviderMock = $this->getDataProviderMock();
@@ -173,9 +143,6 @@ class FormCollectionHandlerTest extends Unit
         $formCollectionHandler->provideDefaultFormData($this->getDataTransferMock());
     }
 
-    /**
-     * @return void
-     */
     public function testProvideDefaultFormWithoutDataProvider(): void
     {
         $formMock = $this->createMock(FormInterface::class);
@@ -187,9 +154,6 @@ class FormCollectionHandlerTest extends Unit
         $formCollectionHandler->provideDefaultFormData($this->getDataTransferMock());
     }
 
-    /**
-     * @return array
-     */
     private function getForms(): array
     {
         $formMocks = [];

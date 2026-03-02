@@ -24,9 +24,6 @@ use Spryker\Yves\StepEngine\Dependency\Plugin\Form\SubFormPluginInterface;
  */
 class SubFormPluginCollectionTest extends Unit
 {
-    /**
-     * @return void
-     */
     public function testAdd(): void
     {
         $subFormPluginCollection = new SubFormPluginCollection();
@@ -37,9 +34,6 @@ class SubFormPluginCollectionTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testKey(): void
     {
         $subFormPluginCollection = new SubFormPluginCollection();
@@ -47,9 +41,6 @@ class SubFormPluginCollectionTest extends Unit
         $this->assertSame(0, $subFormPluginCollection->key());
     }
 
-    /**
-     * @return void
-     */
     public function testCollectionMustIterateable(): void
     {
         $subFormPluginCollection = new SubFormPluginCollection();
@@ -60,9 +51,6 @@ class SubFormPluginCollectionTest extends Unit
         }
     }
 
-    /**
-     * @return void
-     */
     public function testCollectionIsCountable(): void
     {
         $subFormPluginCollection = new SubFormPluginCollection();

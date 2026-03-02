@@ -30,9 +30,6 @@ class AbstractSubFormTypeTest extends Unit
      */
     public const TEMPLATE_PATH = 'abstract/sub/form/type';
 
-    /**
-     * @return void
-     */
     public function testBuildViewVarsContainExpectedPathToTemplate(): void
     {
         $abstractSubFormTypeMock = $this->getAbstractSubFormTypeMock();

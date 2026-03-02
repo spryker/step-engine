@@ -93,9 +93,6 @@ abstract class AbstractStepEngineTest extends Unit
      */
     public const EXTERNAL_URL = 'http://external.de';
 
-    /**
-     * @return \Spryker\Yves\StepEngine\Process\StepCollection
-     */
     protected function getStepCollection(): StepCollection
     {
         return new StepCollection($this->getUrlGeneratorMock(), static::ERROR_ROUTE);
@@ -112,11 +109,6 @@ abstract class AbstractStepEngineTest extends Unit
         return $urlGeneratorMock;
     }
 
-    /**
-     * @param string $input
-     *
-     * @return string
-     */
     public function urlGeneratorCallBack(string $input): string
     {
         $map = [
@@ -130,15 +122,6 @@ abstract class AbstractStepEngineTest extends Unit
         return $map[$input];
     }
 
-    /**
-     * @param bool $preCondition
-     * @param bool $postCondition
-     * @param bool $requireInput
-     * @param string $stepRoute
-     * @param string|null $escapeRoute
-     *
-     * @return \Spryker\Yves\StepEngine\Dependency\Step\StepInterface
-     */
     protected function getStepMock(
         bool $preCondition = true,
         bool $postCondition = true,
@@ -149,11 +132,6 @@ abstract class AbstractStepEngineTest extends Unit
         return new StepMock($preCondition, $postCondition, $requireInput, $stepRoute, $escapeRoute);
     }
 
-    /**
-     * @param string $route
-     *
-     * @return \Symfony\Component\HttpFoundation\Request
-     */
     protected function getRequest(string $route = ''): Request
     {
         $request = Request::createFromGlobals();

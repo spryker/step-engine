@@ -38,13 +38,6 @@ class StepMock implements StepInterface
      */
     protected $escapeRoute;
 
-    /**
-     * @param bool $preCondition
-     * @param bool $postCondition
-     * @param bool $requireInput
-     * @param string $stepRoute
-     * @param string|null $escapeRoute
-     */
     public function __construct(
         bool $preCondition = true,
         bool $postCondition = true,
@@ -59,68 +52,36 @@ class StepMock implements StepInterface
         $this->escapeRoute = $escapeRoute;
     }
 
-    /**
-     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $dataTransfer
-     *
-     * @return bool
-     */
     public function preCondition(AbstractTransfer $dataTransfer): bool
     {
         return $this->preCondition;
     }
 
-    /**
-     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $dataTransfer
-     *
-     * @return bool
-     */
     public function requireInput(AbstractTransfer $dataTransfer): bool
     {
         return $this->requireInput;
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $dataTransfer
-     *
-     * @return \Spryker\Shared\Kernel\Transfer\AbstractTransfer
-     */
     public function execute(Request $request, AbstractTransfer $dataTransfer): AbstractTransfer
     {
         return $dataTransfer;
     }
 
-    /**
-     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $dataTransfer
-     *
-     * @return bool
-     */
     public function postCondition(AbstractTransfer $dataTransfer): bool
     {
         return $this->postCondition;
     }
 
-    /**
-     * @return string
-     */
     public function getStepRoute(): string
     {
         return $this->stepRoute;
     }
 
-    /**
-     * @return string|null
-     */
     public function getEscapeRoute(): ?string
     {
         return $this->escapeRoute;
     }
 
-    /**
-     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $dataTransfer
-     *
-     * @return array
-     */
     public function getTemplateVariables(AbstractTransfer $dataTransfer): array
     {
         return [];

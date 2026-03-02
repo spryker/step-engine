@@ -35,9 +35,6 @@ class BaseStepTest extends Unit
      */
     public const ESCAPE_ROUTE = 'escapeRoute';
 
-    /**
-     * @return void
-     */
     public function testInstantiation(): void
     {
         $baseStep = $this->getBaseStepInstance();
@@ -45,36 +42,24 @@ class BaseStepTest extends Unit
         $this->assertInstanceOf(StepInterface::class, $baseStep);
     }
 
-    /**
-     * @return void
-     */
     public function testGetStepRoute(): void
     {
         $baseStep = $this->getBaseStepInstance();
         $this->assertSame(static::STEP_ROUTE, $baseStep->getStepRoute());
     }
 
-    /**
-     * @return void
-     */
     public function testGetEscapeRoute(): void
     {
         $baseStep = $this->getBaseStepInstance();
         $this->assertSame(static::ESCAPE_ROUTE, $baseStep->getEscapeRoute());
     }
 
-    /**
-     * @return void
-     */
     public function testGetTemplateVariables(): void
     {
         $baseStep = $this->getBaseStepInstance();
         $this->assertSame([], $baseStep->getTemplateVariables($this->getDataTransferMock()));
     }
 
-    /**
-     * @return \SprykerTest\Yves\StepEngine\Dependency\Step\Fixtures\BaseStep
-     */
     private function getBaseStepInstance(): BaseStep
     {
         return new BaseStep(static::STEP_ROUTE, static::ESCAPE_ROUTE);

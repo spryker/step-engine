@@ -29,9 +29,6 @@ class StepHandlerPluginCollectionTest extends Unit
      */
     public const TEST_PLUGIN_NAME = 'test';
 
-    /**
-     * @return void
-     */
     public function testAdd(): void
     {
         $stepHandlerPluginCollection = new StepHandlerPluginCollection();
@@ -42,9 +39,6 @@ class StepHandlerPluginCollectionTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testHasReturnFalse(): void
     {
         $stepHandlerPluginCollection = new StepHandlerPluginCollection();
@@ -52,9 +46,6 @@ class StepHandlerPluginCollectionTest extends Unit
         $this->assertFalse($stepHandlerPluginCollection->has(static::TEST_PLUGIN_NAME));
     }
 
-    /**
-     * @return void
-     */
     public function testHasReturnTrue(): void
     {
         $stepHandlerPluginCollection = new StepHandlerPluginCollection();
@@ -63,9 +54,6 @@ class StepHandlerPluginCollectionTest extends Unit
         $this->assertTrue($stepHandlerPluginCollection->has(static::TEST_PLUGIN_NAME));
     }
 
-    /**
-     * @return void
-     */
     public function testGet(): void
     {
         $stepHandlerPluginCollection = new StepHandlerPluginCollection();

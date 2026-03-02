@@ -32,9 +32,6 @@ class StepEngineTest extends AbstractStepEngineTest
      */
     public const FORM_NAME = 'formName';
 
-    /**
-     * @return void
-     */
     public function testProcessReturnRedirectResponseWithEscapeUrlOfCurrentStepWhenPreConditionNotFulfilled(): void
     {
         $stepCollection = $this->getStepCollection();
@@ -48,9 +45,6 @@ class StepEngineTest extends AbstractStepEngineTest
         $this->assertSame(static::ESCAPE_URL, $response->getTargetUrl());
     }
 
-    /**
-     * @return void
-     */
     public function testProcessReturnRedirectResponseWithUrlOfCurrentStepWhenStepCanNotAccessed(): void
     {
         $stepCollection = $this->getStepCollection();
@@ -64,9 +58,6 @@ class StepEngineTest extends AbstractStepEngineTest
         $this->assertSame(static::STEP_URL_A, $response->getTargetUrl());
     }
 
-    /**
-     * @return void
-     */
     public function testProcessReturnRedirectResponseWithUrlOfNextStepWhenStepNeedNoInput(): void
     {
         $stepCollection = $this->getStepCollection();
@@ -83,9 +74,6 @@ class StepEngineTest extends AbstractStepEngineTest
         $this->assertSame(static::STEP_URL_B, $response->getTargetUrl());
     }
 
-    /**
-     * @return void
-     */
     public function testProcessReturnViewDataWhenNoFormHandlerGiven(): void
     {
         $stepCollection = $this->getStepCollection();
@@ -99,9 +87,6 @@ class StepEngineTest extends AbstractStepEngineTest
         $this->assertArrayHasKey('previousStepUrl', $response);
     }
 
-    /**
-     * @return void
-     */
     public function testProcessReturnViewDataWhenFormCollectionHasNoSubmittedForm(): void
     {
         $stepCollection = $this->getStepCollection();
@@ -125,9 +110,6 @@ class StepEngineTest extends AbstractStepEngineTest
         $this->assertArrayHasKey(static::FORM_NAME, $response);
     }
 
-    /**
-     * @return void
-     */
     public function testProcessReturnRedirectResponseWithUrlToNextStepWhenFormValid(): void
     {
         $stepCollection = $this->getStepCollection();

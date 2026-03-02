@@ -31,9 +31,6 @@ class StepEngineWithBreadcrumbsTest extends AbstractStepEngineTest
      */
     public const FORM_NAME = 'formName';
 
-    /**
-     * @return void
-     */
     public function testProcessReturnViewDataWhenNoFormHandlerGiven(): void
     {
         $stepCollection = $this->getStepCollection();
@@ -72,15 +69,6 @@ class StepEngineWithBreadcrumbsTest extends AbstractStepEngineTest
         return $dataContainerMock;
     }
 
-    /**
-     * @param bool $preCondition
-     * @param bool $postCondition
-     * @param bool $requireInput
-     * @param string $stepRoute
-     * @param string $escapeRoute
-     *
-     * @return \Spryker\Yves\StepEngine\Dependency\Step\StepWithBreadcrumbInterface
-     */
     protected function getStepMockWithBreadcrumb(
         bool $preCondition = true,
         bool $postCondition = true,

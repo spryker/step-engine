@@ -23,9 +23,6 @@ use SprykerTest\Yves\StepEngine\Process\Fixtures\StepMockWithBreadcrumbs;
  */
 class StepBreadcrumbGeneratorTest extends AbstractStepEngineTest
 {
-    /**
-     * @return void
-     */
     public function testGenerateStepBreadcrumbReturnExpectedNumberOfItems(): void
     {
         $stepCollection = $this->getStepCollection();
@@ -42,9 +39,6 @@ class StepBreadcrumbGeneratorTest extends AbstractStepEngineTest
         $this->assertCount(3, $stepBreadcrumbsTransfer->getBreadcrumbs(), 'Breadcrumbs should contain expected number of steps.');
     }
 
-    /**
-     * @return void
-     */
     public function testGenerateStepBreadcrumbReturnExpectedNumberOfVisibleItems(): void
     {
         $stepCollection = $this->getStepCollection();
@@ -62,9 +56,6 @@ class StepBreadcrumbGeneratorTest extends AbstractStepEngineTest
         $this->assertCount(2, $stepBreadcrumbsTransfer->getBreadcrumbs(), 'Breadcrumbs should contain expected number of visible steps when data transfer is available.');
     }
 
-    /**
-     * @return void
-     */
     public function testGenerateStepBreadcrumbReturnItemsInExpectedOrder(): void
     {
         $stepCollection = $this->getStepCollection();
@@ -84,9 +75,6 @@ class StepBreadcrumbGeneratorTest extends AbstractStepEngineTest
         $this->assertSame('baz', $stepBreadcrumbItems[2]->getTitle(), 'Item 3/3 should have expected route name.');
     }
 
-    /**
-     * @return void
-     */
     public function testGenerateStepBreadcrumbReturnItemsWithExpectedEnabledStatus(): void
     {
         $stepCollection = $this->getStepCollection();
@@ -106,9 +94,6 @@ class StepBreadcrumbGeneratorTest extends AbstractStepEngineTest
         $this->assertFalse($stepBreadcrumbItems[2]->getIsEnabled(), 'Item 3/3 should not be enabled.');
     }
 
-    /**
-     * @return void
-     */
     public function testGenerateStepBreadcrumbReturnItemsWithExpectedActiveStatus(): void
     {
         $stepCollection = $this->getStepCollection();
@@ -130,15 +115,6 @@ class StepBreadcrumbGeneratorTest extends AbstractStepEngineTest
         $this->assertFalse($stepBreadcrumbItems[2]->getIsActive(), 'Item 3/3 should not be active.');
     }
 
-    /**
-     * @param bool $preCondition
-     * @param bool $postCondition
-     * @param bool $requireInput
-     * @param string $stepRoute
-     * @param string $escapeRoute
-     *
-     * @return \Spryker\Yves\StepEngine\Dependency\Step\StepWithBreadcrumbInterface
-     */
     protected function getStepMockWithBreadcrumbs(
         bool $preCondition = true,
         bool $postCondition = true,

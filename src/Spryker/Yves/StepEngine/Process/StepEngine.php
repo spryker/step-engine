@@ -221,11 +221,6 @@ class StepEngine implements StepEngineInterface
         return $templateVariables;
     }
 
-    /**
-     * @param \Spryker\Shared\Kernel\Transfer\AbstractTransfer $dataTransfer
-     *
-     * @return \Spryker\Shared\Kernel\Transfer\AbstractTransfer
-     */
     protected function executeStepEnginePreRenderPlugins(AbstractTransfer $dataTransfer): AbstractTransfer
     {
         foreach ($this->stepEnginePreRenderPlugins as $stepEnginePreRenderPlugin) {
